@@ -1,5 +1,6 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 // Lista de amigos (se irá llenando dinámicamente)
+
 let amigos = [];
 
 // Función para agregar un amigo
@@ -9,6 +10,8 @@ function agregarAmigo() {
 
     if (nombre === "") {
         alert("Por favor, ingresa un nombre válido.");
+    } else if (amigos.includes(nombre)) {
+        alert("Ese nombre ya fue agregado.");
     } else {
         amigos.push(nombre);
         actualizarLista();
@@ -38,6 +41,13 @@ function sortearAmigo() {
     let indiceAleatorio = Math.floor(Math.random() * amigos.length);
     let amigoSecreto = amigos[indiceAleatorio];
 
+    // Mostramos el resultado
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `<li>🎉 El amigo secreto es: <strong>${amigoSecreto}</strong></li>`;
+
+    // Eliminamos al amigo sorteado de la lista
+    amigos.splice(indiceAleatorio, 1);
+
+    // Actualizamos la lista visible
+    actualizarLista();
 }
