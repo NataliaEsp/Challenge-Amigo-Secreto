@@ -36,7 +36,7 @@ function sortearAmigo() {
         return;
     }
 
-    // Filtramos los que aún no fueron sorteados
+    // Filtramos los amigos que aún no fueron sorteados
     let disponibles = amigos.filter(a => !yaSorteados.includes(a));
 
     if (disponibles.length === 0) {
@@ -44,6 +44,7 @@ function sortearAmigo() {
         return;
     }
 
+    // Elegimos un amigo aleatorio de los disponibles
     let indiceAleatorio = Math.floor(Math.random() * disponibles.length);
     let amigoSecreto = disponibles[indiceAleatorio];
 
