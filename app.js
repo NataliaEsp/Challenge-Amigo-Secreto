@@ -2,6 +2,7 @@
 // Lista de amigos (se irá llenando dinámicamente)
 
 let amigos = [];
+let yaSorteados = []; // para registrar amigos ya sorteados
 
 // Función para agregar un amigo
 function agregarAmigo() {
@@ -38,16 +39,22 @@ function sortearAmigo() {
         return;
     }
 
-    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
-    let amigoSecreto = amigos[indiceAleatorio];
+    // Filtramos los amigos que aún no fueron sorteados
+    let disponibles = amigos.filter(a => !yaSorteados.includes(a));
+
+    if (disponibles.length === 0) {
+        alert("Todos los amigos ya fueron sorteados.");
+        return;
+    }
+
+    // Elegimos un amigo aleatorio de los disponibles
+    let indiceAleatorio = Math.floor(Math.random() * disponibles.length);
+    let amigoSecreto = disponibles[indiceAleatorio];
+
+    // Guardamos en yaSorteados
+    yaSorteados.push(amigoSecreto);
 
     // Mostramos el resultado
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `<li>🎉 El amigo secreto es: <strong>${amigoSecreto}</strong></li>`;
-
-    // Eliminamos al amigo sorteado de la lista
-    amigos.splice(indiceAleatorio, 1);
-
-    // Actualizamos la lista visible
-    actualizarLista();
 }
