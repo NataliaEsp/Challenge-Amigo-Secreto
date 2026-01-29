@@ -12,4 +12,3 @@ Los usuarios pueden ingresar nombres de amigos, visualizarlos en una lista y rea
 - 📋 **Visualizar la lista** completa de amigos ingresados.  
 - 🎲 **Sorteo aleatorio** que selecciona y muestra un amigo secreto.  
 - ✨ **Funcionalidad extra**: los amigos ya sorteados **no se vuelven a sortear**, pero permanecen visibles en la lista. Cuando todos los amigos fueron sorteados, aparece un mensaje indicando que ya no quedan disponibles.
-
